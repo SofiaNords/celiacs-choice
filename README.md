@@ -1,3 +1,16 @@
+
+
+
+## Technologies Used
+
+
+### Frameworks, Libraries, Tools & Programs
+
+- [React](https://react.dev/) - Used for building user interface
+- [Git](https://git-scm.com/) - Used for version control
+- [GitHub](https://github.com/) - Used to store the code
+- [GitPod](https://www.gitpod.io/) - Used as the IDE for development
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
