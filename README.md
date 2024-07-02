@@ -11,6 +11,7 @@
 - [GitPod](https://www.gitpod.io/) - Used as the IDE for development
 - [React](https://react.dev/) - Used for building user interface
 - [React Bootstrap](https://react-bootstrap.netlify.app/) - Used for styling the project
+- [React Router](https://reactrouter.com/en/6.24.0/web/guides/quick-start) - Used for handling routing in the application
 
 # Getting Started with Create React App
 
