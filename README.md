@@ -6,6 +6,7 @@
 
 ### Frameworks, Libraries, Tools & Programs
 
+- [Axios](https://axios-http.com/docs/intro) - Used for handeling requests to the API
 - [Git](https://git-scm.com/) - Used for version control
 - [GitHub](https://github.com/) - Used to store the code
 - [GitPod](https://www.gitpod.io/) - Used as the IDE for development
