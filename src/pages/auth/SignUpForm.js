@@ -5,6 +5,8 @@ import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+import hero from "../../images/hero.jpg"
+
 import { Form, Button, Image, Col, Row, Container } from "react-bootstrap";
 
 const SignUpForm = () => {
@@ -42,9 +44,7 @@ const SignUpForm = () => {
             >
                 <Image
                     className={`${appStyles.FillerImage}`}
-                    src={
-                        "https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"
-                    }
+                    src={hero}
                 />
             </Col>
         </Row>
