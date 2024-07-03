@@ -9,17 +9,17 @@ import SignInForm from './pages/auth/SignInForm';
 function App() {
   return (
     <div className={styles.App}>
-      <NavBar/>
+      <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route exact path="/" render={() => <h1>Home page</h1>}/>
-          <Route exact path="/about" render={() => <h1>About</h1>}/>
-          <Route exact path="/signin" render={() => <SignInForm />}/>
-          <Route exact path="/signup" render={() => <SignUpForm />}/>
-          <Route render={()=><p>Page not found!</p>} />
+          <Route exact path="/" render={() => <h1>Home page</h1>} />
+          <Route exact path="/about" render={() => <h1>About</h1>} />
+          <Route exact path="/signin" render={() => <SignInForm />} />
+          <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
-    </div>
+    </div >
   );
 }
 

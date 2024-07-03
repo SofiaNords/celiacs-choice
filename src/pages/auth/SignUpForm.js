@@ -60,7 +60,7 @@ const SignUpForm = () => {
                             <Alert variant="warning" key={idx}>{message}</Alert>
                         ))}
 
-                        <Form.Group controlId="formBasicPassword">
+                        <Form.Group controlId="password1">
                             <Form.Label>Password</Form.Label>
                             <Form.Control
                                 type="password"
@@ -74,11 +74,11 @@ const SignUpForm = () => {
                             <Alert variant="warning" key={idx}>{message}</Alert>
                         ))}
 
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Repeat Password</Form.Label>
+                        <Form.Group controlId="password2">
+                            <Form.Label>Confirm Password</Form.Label>
                             <Form.Control
                                 type="password"
-                                placeholder="Password"
+                                placeholder="Confirm password"
                                 name="password2"
                                 value={password2}
                                 onChange={handleChange}
