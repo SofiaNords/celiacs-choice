@@ -1,23 +1,26 @@
-import React from 'react'
-import { Navbar, Container, Nav } from 'react-bootstrap'
+import React from 'react';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 import styles from '../styles/NavBar.module.css';
 import { NavLink } from 'react-router-dom';
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 import Avatar from './Avatar';
 import axios from 'axios';
+import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
 
+    const {expanded, setExpanded, ref} = useClickOutsideToggle();
+
     const handleSignOut = async () => {
         try {
-          await axios.post("dj-rest-auth/logout/");
-          setCurrentUser(null);
+            await axios.post("dj-rest-auth/logout/");
+            setCurrentUser(null);
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
-      };
+    };
 
     const addPostIcon = (
         <NavLink
@@ -66,7 +69,7 @@ const NavBar = () => {
             <i className='fas fa-user-plus'></i>Sign up</NavLink>
     </>
     return (
-        <Navbar className={styles.NavBar} expand="lg" fixed="top">
+        <Navbar expanded={expanded} className={styles.NavBar} expand="lg" fixed="top">
             <Container>
                 <NavLink to="/">
                     <Navbar.Brand href="#home">
@@ -74,7 +77,11 @@ const NavBar = () => {
                     </Navbar.Brand>
                 </NavLink>
                 {currentUser && addPostIcon}
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle
+                    ref={ref}
+                    onClick={() => setExpanded(!expanded)}
+                    aria-controls="basic-navbar-nav"
+                />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto text-left">
                         <NavLink
