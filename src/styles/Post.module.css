@@ -1,0 +1,26 @@
+
+.Post {
+    background-color: #ffffff;
+    border: 1px solid #dadadf;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .Post figure,
+  h5 {
+    margin: 0 0;
+  }
+  
+  .Select {
+    color: #f85032;
+  }
+  
+  .Select:hover {
+    color: #2142b2;
+  }
+  
+  .SelectOutline:hover {
+    color: green;
+  }
+  
