@@ -13,14 +13,14 @@
   }
   
   .Select {
-    color: #f85032;
+    color: green;
   }
   
   .Select:hover {
-    color: #2142b2;
+    color: green;
   }
   
   .SelectOutline:hover {
-    color: green;
+    color: lightgrey;
   }
   

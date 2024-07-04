@@ -4,6 +4,7 @@ import styles from '../../styles/Post.module.css'
 import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from '../../api/axiosDefaults';
 
 const Post = (props) => {
     const {
@@ -13,17 +14,50 @@ const Post = (props) => {
         profile_image,
         comments_count,
         select_count,
-        selected_id,
+        select_id,
         title,
         location,
         content,
         image,
         updated_at,
         postPage,
+        setPosts,
     } = props;
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner
+
+    const handleSelect = async () => {
+        try {
+            const { data } = await axiosRes.post("/selected/", { post: id });
+            setPosts((prevPosts) => ({
+                ...prevPosts,
+                results: prevPosts.results.map((post) => {
+                    return post.id === id
+                        ? { ...post, select_count: post.select_count + 1, select_id: data.id }
+                        : post;
+                }),
+            }));
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const handleUnSelect = async () => {
+        try {
+            await axiosRes.delete(`/selected/${select_id}/`);
+            setPosts((prevPosts) => ({
+                ...prevPosts,
+                results: prevPosts.results.map((post) => {
+                    return post.id === id
+                        ? { ...post, select_count: post.select_count - 1, select_id: null }
+                        : post;
+                }),
+            }));
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     return <Card className={styles.Post}>
         <Card.Body>
@@ -52,12 +86,12 @@ const Post = (props) => {
                     >
                         <i class="fa-solid fa-circle-check" />
                     </OverlayTrigger>
-                ) : selected_id ? (
-                    <span onClick={() => { }}>
+                ) : select_id ? (
+                    <span onClick={handleUnSelect}>
                         <i className={`fa-solid fa-circle-check ${styles.Select}`} />
                     </span>
                 ) : currentUser ? (
-                    <span onClick={() => { }}>
+                    <span onClick={handleSelect}>
                         <i className={`fa-solid fa-circle-check ${styles.SelectOutline}`} />
                     </span>
                 ) : (
