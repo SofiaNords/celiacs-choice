@@ -1,8 +1,7 @@
-
 import React, { useState } from "react";
 
 import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
-import hero from "../../images/hero.jpg"
+import hero from "../../assets/hero.jpg"
 import styles from "../../styles/SignInUpForm.module.css";
 // import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";

@@ -4,7 +4,7 @@ import styles from "../../styles/SignInUpForm.module.css";
 // import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
-import hero from "../../images/hero.jpg"
+import hero from "../../assets/hero.jpg"
 
 import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
 import axios from "axios";
