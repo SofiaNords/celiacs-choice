@@ -31,7 +31,7 @@ function App() {
             path="/selected"
             render={() => (
               <PostsPage message="No results found. Adjust the search keyword or select a post."
-                filter={`selected__owner__profile=${profile_id}&ordering=-selected__created_at&`}
+                filter={`select__owner__profile=${profile_id}&ordering=-select__created_at&`}
               />
             )}
           />
