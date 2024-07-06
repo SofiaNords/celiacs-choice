@@ -1,5 +1,5 @@
 
-
+At the moment each of the PopularProfiles components makes its own API request, and contains its own version of the profiles state. Given that we need to access profile data in several places around our application, it would make sense for all our profile data to be in sync across all the components that need to access it. So in order to have one source of truth for our profile data state, we should move it into a context provider.
 
 ## Technologies Used
 

@@ -18,7 +18,7 @@ const SelectedPosts = ({ mobile }) => {
         const handleMount = async () => {
             try {
                 const { data } = await axiosReq.get(
-                    "/posts/?ordering=-select_count"
+                    `/posts/?select__owner__profile=${currentUser.profile_id}&ordering=-select__created_at`
                 );
                 setPostData((prevState) => ({
                     ...prevState,
@@ -36,15 +36,15 @@ const SelectedPosts = ({ mobile }) => {
         <Container className={`${appStyles.Content} ${mobile && 'd-lg-none text-center mb-3'}`}>
             {selectedPosts.results.length ? (
                 <>
-                <p>Selected Choices List</p>
-            {selectedPosts.results.map((post) => (
-                <p key={post.id}>{post.title}</p>
-            ))}
-        </>
-    ) : (
-        <Asset spinner />
-    )
-}
+                    <p>Selected Choices List</p>
+                    {selectedPosts.results.map((post) => (
+                        <p key={post.id}>{`"${post.title}" by ${post.owner}`}</p>
+                    ))}
+                </>
+            ) : (
+                <Asset spinner />
+            )
+            }
         </Container >
     );
 };
