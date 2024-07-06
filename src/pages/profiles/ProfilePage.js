@@ -67,6 +67,8 @@ function ProfilePage() {
                         </Col>
                     </Row>
                 </Col>
+            </Row>
+            <Row noGutters className="px-3 text-center">
                 {profile?.content && <Col className="p-3">{profile.content}</Col>}
             </Row>
         </>

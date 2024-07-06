@@ -4,6 +4,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { Link } from "react-router-dom";
 
 const SelectedPosts = ({ mobile }) => {
     const [postData, setPostData] = useState({
@@ -38,14 +39,15 @@ const SelectedPosts = ({ mobile }) => {
                 <>
                     <p>Selected Choices List</p>
                     {selectedPosts.results.map((post) => (
-                        <p key={post.id}>{`"${post.title}" by ${post.owner}`}</p>
+                        <div key={post.id}>
+                            <Link to={`/posts/${post.id}`}>{`"${post.title}" by ${post.owner}`}</Link>
+                        </div>
                     ))}
                 </>
             ) : (
                 <Asset spinner />
-            )
-            }
-        </Container >
+            )}
+        </Container>
     );
 };
 
