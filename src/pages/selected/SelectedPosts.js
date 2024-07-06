@@ -5,7 +5,7 @@ import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-const SelectedPosts = () => {
+const SelectedPosts = ({ mobile }) => {
     const [postData, setPostData] = useState({
         // we will use the pagePost later!
         pagePost: { results: [] },
@@ -33,7 +33,7 @@ const SelectedPosts = () => {
     }, [currentUser]);
 
     return (
-        <Container className={appStyles.Content}>
+        <Container className={`${appStyles.Content} ${mobile && 'd-lg-none text-center mb-3'}`}>
             {selectedPosts.results.length ? (
                 <>
                 <p>Selected Choices List</p>
