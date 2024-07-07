@@ -8,15 +8,16 @@ import { Link } from "react-router-dom";
 
 const SelectedPosts = ({ mobile }) => {
     const [postData, setPostData] = useState({
-        // we will use the pagePost later!
         pagePost: { results: [] },
         selectedPosts: { results: [] },
     });
+    const [isLoading, setIsLoading] = useState(true);
     const { selectedPosts } = postData;
     const currentUser = useCurrentUser();
 
     useEffect(() => {
         const handleMount = async () => {
+            setIsLoading(true);
             try {
                 const { data } = await axiosReq.get(
                     `/posts/?select__owner__profile=${currentUser.profile_id}&ordering=-select__created_at`
@@ -28,6 +29,7 @@ const SelectedPosts = ({ mobile }) => {
             } catch (err) {
                 console.log(err);
             }
+            setIsLoading(false);
         };
 
         handleMount();
@@ -35,7 +37,9 @@ const SelectedPosts = ({ mobile }) => {
 
     return (
         <Container className={`${appStyles.Content} ${mobile && 'd-lg-none text-center mb-3'}`}>
-            {selectedPosts.results.length ? (
+            {isLoading ? (
+                <Asset spinner />
+            ) : selectedPosts.results.length ? (
                 <>
                     <p>Selected Choices List</p>
                     {selectedPosts.results.map((post) => (
@@ -45,7 +49,10 @@ const SelectedPosts = ({ mobile }) => {
                     ))}
                 </>
             ) : (
-                <Asset spinner />
+                <>
+                <p>Selected Choices List</p>
+                <p>The list is empty for now. Please make your selections to replenish the list.</p>
+                </>
             )}
         </Container>
     );
