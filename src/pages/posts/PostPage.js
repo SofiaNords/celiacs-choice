@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 import Comment from "../comments/Comment";
@@ -31,21 +31,24 @@ function PostPage() {
       try {
         const [{ data: post }, { data: comments }] = await Promise.all([
           axiosReq.get(`/posts/${id}`),
-          axiosReq.get(`/comments/?post${id}`)
-        ])
+          axiosReq.get(`/comments/?post=${id}`),
+        ]);
         setPost({ results: [post] });
         setComments(comments);
+        console.log("post in postsPage = ",post)
+        console.log("comments in postsPage",comments)
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-    }
+    };
+
     handleMount();
   }, [id]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        Selected Posts?
+        <SelectedPosts mobile />
         <Post {...post.results[0]} setPosts={setPost} postPage />
         <Container className={appStyles.Content}>
           {currentUser ? (

@@ -33,12 +33,26 @@ function SignInForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        const newErrors = {};
+
+        if (!username) {
+            newErrors.username = ["This field may not be blank."];
+        }
+        if (!password) {
+            newErrors.password = ["This field may not be blank."];
+        }
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            return;
+        }
         try {
             const {data} = await axios.post('/dj-rest-auth/login/', signInData);
             setCurrentUser(data.user)
             history.goBack();
-        } catch (err) {
-            setErrors(err.response?.data);
+        } catch (error) {
+            console.log("error response = ",error.response)
+            setErrors(error.response?.data);
         }
     };
 
@@ -59,8 +73,10 @@ function SignInForm() {
                             />
                         </Form.Group>
                         {errors.username?.map((message, idx) => (
-                            <Alert variant="warning" key={idx}>{message}</Alert>
-                        ))}
+                            <Alert key={idx} variant="warning">
+                                {message}
+                            </Alert>
+                            ))}
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control
@@ -78,8 +94,10 @@ function SignInForm() {
                             Sign in
                         </Button>
                         {errors.non_field_errors?.map((message, idx) => (
-                            <Alert variant="warning" key={idx} className="mt-3">{message}</Alert>
-                        ))}
+                            <Alert key={idx} variant="warning" className="mt-3">
+                                {message}
+                            </Alert>
+                            ))}
                     </Form>
 
                 </Container>

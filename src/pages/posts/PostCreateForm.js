@@ -58,6 +58,26 @@ function PostCreateForm() {
         formData.append('content', content)
         formData.append('image', imageInput.current.files[0])
 
+        const newErrors = {};
+
+        if (!title) {
+            newErrors.title = ["This field may not be blank."];
+        }
+        if (!location) {
+            newErrors.location = ["This field may not be blank."];
+        }
+        if (!content) {
+            newErrors.content = ["This field may not be blank."];
+        }
+        if (!image) {
+            newErrors.image = ["The submitted data was not a file. Check the encoding type on the form."];
+        }
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            return;
+        }
+
         try {
             const { data } = await axiosReq.post('/posts/', formData);
             history.push(`/posts/${data.id}`)
