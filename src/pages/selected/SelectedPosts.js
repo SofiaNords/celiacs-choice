@@ -4,6 +4,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import styles from '../../styles/SelectedPosts.module.css'
 import { Link } from "react-router-dom";
 
 const SelectedPosts = ({ mobile }) => {
@@ -44,6 +45,7 @@ const SelectedPosts = ({ mobile }) => {
                     <p>Selected Choices List</p>
                     {selectedPosts.results.map((post) => (
                         <div key={post.id}>
+                            <i className={`fa-solid fa-circle-check ${styles.Select}`} />
                             <Link to={`/posts/${post.id}`}>{`"${post.title}" by ${post.owner}`}</Link>
                         </div>
                     ))}
