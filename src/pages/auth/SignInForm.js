@@ -91,7 +91,7 @@ function SignInForm() {
                             <Alert variant="warning" key={idx}>{message}</Alert>
                         ))}
                         <Button
-                        className={`${btnStyles.Button} ${btnStyles.Green} ${btnStyles.Red} ${btnStyles.Center}`}
+                        className={`${btnStyles.Button} ${btnStyles.Green} ${btnStyles.Black} ${btnStyles.Wide}`}
                         type="submit"
                         >
                             Sign in

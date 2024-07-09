@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import styles from "../../styles/SignInUpForm.module.css";
-// import btnStyles from "../../styles/Button.module.css";
+import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
 import hero from "../../assets/hero.jpg"
@@ -90,7 +90,7 @@ const SignUpForm = () => {
                             <Alert variant="warning" key={idx}>{message}</Alert>
                         ))}
 
-                        <Button variant="primary" type="submit">
+                        <Button className={`${btnStyles.Button} ${btnStyles.Green} ${btnStyles.Black} ${btnStyles.Wide}`} type="submit">
                             Sign up
                         </Button>
                         {errors.non_field_errors?.map((message, idx) => (

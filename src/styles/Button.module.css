@@ -1,13 +1,12 @@
-/* .Button {
+.Button {
   font-size: 0.8rem;
   align-self: center;
-  border-radius: 100px;
   border-color: transparent;
   padding: 4px 10px;
   margin-left: 2px;
   margin-right: 2px;
   min-width: 75px;
-} */
+}
 
 /* .Button:hover {
   opacity: 0.8;
@@ -32,10 +31,6 @@
   width: 100%;
 }
 
-.Center {
-  text-align: center;
-}
-
 .Green,
 .GreenOutline:hover,
 .Bright:hover {
@@ -43,10 +38,10 @@
   color: #ffffff;
 }
 
-.RedOutline,
-.Red:hover {
+.BlackOutline,
+.Black:hover {
   /* border: 1px solid #2142b2; */
-  background-color: #EC0B43;
+  background-color: black;
   color: #ffffff;
 }
 
