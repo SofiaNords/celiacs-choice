@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
 import hero from "../../assets/hero.jpg"
 import styles from "../../styles/SignInUpForm.module.css";
-// import btnStyles from "../../styles/Button.module.css";
+import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
@@ -90,7 +90,10 @@ function SignInForm() {
                         {errors.password?.map((message, idx) => (
                             <Alert variant="warning" key={idx}>{message}</Alert>
                         ))}
-                        <Button variant="primary" type="submit">
+                        <Button
+                        className={`${btnStyles.Button} ${btnStyles.Green} ${btnStyles.Red} ${btnStyles.Center}`}
+                        type="submit"
+                        >
                             Sign in
                         </Button>
                         {errors.non_field_errors?.map((message, idx) => (
@@ -99,7 +102,6 @@ function SignInForm() {
                             </Alert>
                             ))}
                     </Form>
-
                 </Container>
                 <Container className={`mt-3 ${appStyles.Content}`}>
                     <Link className={styles.Link} to="/signup">

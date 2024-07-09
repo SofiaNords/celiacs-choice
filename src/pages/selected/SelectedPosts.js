@@ -53,7 +53,7 @@ const SelectedPosts = ({ mobile }) => {
             ) : (
                 <>
                 <p>Selected Choices List</p>
-                <p>The list is empty for now. Please make your selections to replenish the list.</p>
+                <p>The list is empty for now. Please make your selections to add posts the list.</p>
                 </>
             )}
         </Container>

@@ -72,7 +72,7 @@ const NavBar = () => {
         <Navbar expanded={expanded} className={styles.NavBar} expand="lg" fixed="top">
             <Container>
                 <NavLink to="/">
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand className={styles.Logo} href="#home">
                         Celiac's Choice
                     </Navbar.Brand>
                 </NavLink>
