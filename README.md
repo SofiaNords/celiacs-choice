@@ -14,6 +14,7 @@ Warning didn't appear under username in Sign in ....
 - [Git](https://git-scm.com/) - Used for version control
 - [GitHub](https://github.com/) - Used to store the code
 - [GitPod](https://www.gitpod.io/) - Used as the IDE for development
+jwt decode
 - [React](https://react.dev/) - Used for building user interface
 - [React Bootstrap](https://react-bootstrap.netlify.app/) - Used for styling the project
 - [React Infinite Scroll Component](https://www.npmjs.com/package/react-infinite-scroll-component) - Used for infinite scroll feature

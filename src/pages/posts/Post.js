@@ -106,7 +106,7 @@ const Post = (props) => {
                         placement="top"
                         overlay={<Tooltip>You can't select your own post!</Tooltip>}
                     >
-                        <i class="fa-solid fa-circle-check" />
+                        <i className="fa-solid fa-circle-check" />
                     </OverlayTrigger>
                 ) : select_id ? (
                     <span onClick={handleUnSelect}>
