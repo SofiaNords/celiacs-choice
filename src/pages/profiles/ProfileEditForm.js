@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
@@ -8,7 +7,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-
 import { axiosReq } from "../../api/axiosDefaults";
 import {
   useCurrentUser,
@@ -36,6 +34,7 @@ const ProfileEditForm = () => {
 
   useEffect(() => {
     const handleMount = async () => {
+      // Fetch profile data if the current user's profile ID matches the requested ID
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
@@ -54,6 +53,7 @@ const ProfileEditForm = () => {
   }, [currentUser, history, id]);
 
   const handleChange = (event) => {
+    // Update profile data when input fields change
     setProfileData({
       ...profileData,
       [event.target.name]: event.target.value,
@@ -71,6 +71,7 @@ const ProfileEditForm = () => {
     }
 
     try {
+      // Update profile data on form submission
       const { data } = await axiosReq.put(`/profiles/${id}/`, formData);
       setCurrentUser((currentUser) => ({
         ...currentUser,
@@ -85,6 +86,7 @@ const ProfileEditForm = () => {
 
   const textFields = (
     <>
+      {/* Bio textarea */}
       <Form.Group>
         <Form.Label>Bio</Form.Label>
         <Form.Control
@@ -95,12 +97,13 @@ const ProfileEditForm = () => {
           rows={7}
         />
       </Form.Group>
-
+      {/* Display content-related warnings */}
       {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
+      {/* Cancel and save buttons */}
       <Button
         className={`${btnStyles.Button} ${btnStyles.Green} ${btnStyles.Black}`}
         onClick={() => history.goBack()}
@@ -116,19 +119,23 @@ const ProfileEditForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
+        {/* Image upload section */}
         <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
           <Container className={appStyles.Content}>
             <Form.Group>
+              {/* Display current profile image */}
               {image && (
                 <figure>
                   <Image src={image} fluid />
                 </figure>
               )}
+              {/* Display image-related warnings */}
               {errors?.image?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                   {message}
                 </Alert>
               ))}
+              {/* Change image button */}
               <div>
                 <Form.Label
                   className={`${btnStyles.Button} ${btnStyles.Blue} btn my-auto`}
@@ -137,6 +144,7 @@ const ProfileEditForm = () => {
                   Change the image
                 </Form.Label>
               </div>
+              {/* Image file input */}
               <Form.File
                 id="image-upload"
                 ref={imageFile}
@@ -154,6 +162,7 @@ const ProfileEditForm = () => {
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
+        {/* Text fields section */}
         <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2 text-center">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>

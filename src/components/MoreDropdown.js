@@ -16,15 +16,16 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
+// MoreDropdown component
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown className="ml-auto" drop="left">
       <Dropdown.Toggle as={ThreeDots} />
-
       <Dropdown.Menu
         className="text-center"
         popperConfig={{ strategy: "fixed" }}
       >
+        {/* Edit item */}
         <Dropdown.Item
           className={styles.DropdownItem}
           onClick={handleEdit}
@@ -32,6 +33,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
         >
           <i className="fas fa-edit" />
         </Dropdown.Item>
+        {/* Delete item */}
         <Dropdown.Item
           className={styles.DropdownItem}
           onClick={handleDelete}
@@ -50,12 +52,14 @@ export const ProfileEditDropdown = ({ id }) => {
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
       <Dropdown.Toggle as={ThreeDots} />
       <Dropdown.Menu>
+        {/* Edit profile item */}
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit`)}
           aria-label="edit-profile"
         >
           <i className="fas fa-edit" /> edit profile
         </Dropdown.Item>
+        {/* Change username item */}
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/username`)}
           aria-label="edit-username"
@@ -63,6 +67,7 @@ export const ProfileEditDropdown = ({ id }) => {
           <i className="far fa-id-card" />
           change username
         </Dropdown.Item>
+        {/* Change password item */}
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/password`)}
           aria-label="edit-password"

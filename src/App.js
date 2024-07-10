@@ -25,6 +25,7 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
+          {/* Home page */}
           <Route
             exact
             path="/"
@@ -32,6 +33,7 @@ function App() {
               <PostsPage message="No results found. Adjust the search keyword." />
             )}
           />
+          {/* Selected posts page */}
           <Route
             exact
             path="/selected"
@@ -41,28 +43,39 @@ function App() {
               />
             )}
           />
+          {/* About page */}
           <Route exact path="/about" render={() => <About />} />
+          {/* Sign-in page */}
           <Route exact path="/signin" render={() => <SignInForm />} />
+          {/* Sign-up page */}
           <Route exact path="/signup" render={() => <SignUpForm />} />
+          {/* Create post page */}
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
+          {/* Individual post page */}
           <Route exact path="/posts/:id/" render={() => <PostPage />} />
+          {/* Edit post page */}
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
+          {/* Profile page */}
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          {/* Edit username page */}
           <Route
             exact
             path="/profiles/:id/edit/username"
             render={() => <UsernameForm />}
           />
+          {/* Edit password page */}
           <Route
             exact
             path="/profiles/:id/edit/password"
             render={() => <UserPasswordForm />}
           />
+          {/* Edit profile page */}
           <Route
             exact
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
+          {/* Page not found */}
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>

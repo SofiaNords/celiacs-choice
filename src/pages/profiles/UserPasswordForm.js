@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
-
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
@@ -28,6 +25,7 @@ const UserPasswordForm = () => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
+    // Update user data when input fields change
     setUserData({
       ...userData,
       [event.target.name]: event.target.value,
@@ -35,6 +33,7 @@ const UserPasswordForm = () => {
   };
 
   useEffect(() => {
+    // Redirect user if they are not the owner of this profile
     if (currentUser?.profile_id?.toString() !== id) {
       // redirect user if they are not the owner of this profile
       history.push("/");
@@ -44,6 +43,7 @@ const UserPasswordForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      // Change password on form submission
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
       history.goBack();
     } catch (err) {
@@ -67,6 +67,7 @@ const UserPasswordForm = () => {
                 name="new_password1"
               />
             </Form.Group>
+            {/* Display new password-related warnings */}
             {errors?.new_password1?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
@@ -82,11 +83,13 @@ const UserPasswordForm = () => {
                 name="new_password2"
               />
             </Form.Group>
+            {/* Display confirm password-related warnings */}
             {errors?.new_password2?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
               </Alert>
             ))}
+            {/* Cancel and save buttons */}
             <Button
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
               onClick={() => history.goBack()}

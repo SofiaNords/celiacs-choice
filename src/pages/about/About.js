@@ -9,15 +9,17 @@ function About() {
     <Container>
       <Row>
         <Col xs={12} md={8}>
-          {/* Vänsterkolumn för text */}
+          {/* Header section */}
           <h1 className={styles.Header}>About Celiac's Choice</h1>
           <p>
             Welcome to Celiac's Choice, your go-to platform for gluten-free dining experiences! Whether you're a seasoned celiac or just starting your gluten-free journey, we're here to connect you with safe and delicious options.
           </p>
+          {/* Mission section */}
           <h3>Our Mission</h3>
           <p>
             At Celiac’s Choice, we’re passionate about promoting gluten-free awareness and supporting the celiac community. Our platform allows users to share their favorite gluten-free restaurants and cafés, complete with mouthwatering photos and precise locations. Plus, you can engage with other users by commenting on their posts and building your own Selected Choices list.
           </p>
+          {/* How It Works section */}
           <h3>How It Works</h3>
           <ol>
             <li>
@@ -33,16 +35,17 @@ function About() {
               Selected Choices: Save your favorite posts to your Selected Choices list. Easily access them by clicking on the post title.
             </li>
           </ol>
+          {/* Join Us section */}
           <h3>Join Us!</h3>
           <p>
             Ready to embark on a gluten-free adventure? Register now and start sharing your culinary escapades with the Celiac’s Choice community!
           </p>
         </Col>
+        {/* Image section */}
         <Col xs={12} md={4}>
-          {/* Högerkolumn för bild */}
           <Image
-          className={`${appStyles.FillerImage}`}
-          src={about}
+            className={`${appStyles.FillerImage}`}
+            src={about}
           />
         </Col>
       </Row>

@@ -4,7 +4,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import styles from '../../styles/SelectedPosts.module.css'
+import styles from '../../styles/SelectedPosts.module.css';
 import { Link } from "react-router-dom";
 
 const SelectedPosts = ({ mobile }) => {
@@ -24,6 +24,7 @@ const SelectedPosts = ({ mobile }) => {
             }
             setIsLoading(true);
             try {
+                // Fetch selected posts for the current user's profile
                 const { data } = await axiosReq.get(
                     `/posts/?select__owner__profile=${currentUser.profile_id}&ordering=-select__created_at`
                 );
@@ -43,8 +44,10 @@ const SelectedPosts = ({ mobile }) => {
     return (
         <Container className={`${appStyles.Content} ${mobile && 'd-lg-none text-center mb-3'}`}>
             {isLoading ? (
+                // Display loading spinner while fetching data
                 <Asset spinner />
             ) : selectedPosts.results.length ? (
+                // Display selected posts if available
                 <>
                     <p>Selected Choices List</p>
                     {selectedPosts.results.map((post) => (
@@ -55,6 +58,7 @@ const SelectedPosts = ({ mobile }) => {
                     ))}
                 </>
             ) : (
+                // Display message when no selected posts found
                 <>
                 <p>Selected Choices List</p>
                 <p>The list is empty for now. Please make your selections to add posts the list.</p>
