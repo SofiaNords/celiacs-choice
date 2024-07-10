@@ -5,6 +5,10 @@ View the full website [here.](https://celiacs-choice-1569a3d67327.herokuapp.com/
 
 ![](../celiacs-choice/docs/images/responsive.png)
 
+The application is developed using the Django Rest framework for the back end and React for the front end.
+
+This is the front end part of the project, the back end part can be found [here.](https://github.com/SofiaNords/celiacs-api)
+
 ## Bugs
 
 Warning didn't appear under username in Sign in ....
