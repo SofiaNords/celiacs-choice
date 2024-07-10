@@ -4,29 +4,34 @@ import { axiosReq, axiosRes } from '../api/axiosDefaults';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { removeTokenTimestamp, shouldRefreshToken } from '../utils/utils';
 
-export const CurrentUserContext = createContext()
-export const SetCurrentUserContext = createContext()
+// Create a context for the current user
+export const CurrentUserContext = createContext();
+export const SetCurrentUserContext = createContext();
 
-export const useCurrentUser = () => useContext(CurrentUserContext)
-export const useSetCurrentUser = () => useContext(SetCurrentUserContext)
+// Custom hooks to access the current user and set the current user
+export const useCurrentUser = () => useContext(CurrentUserContext);
+export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
 
+// Provider component to manage the current user state
 export const CurrentUserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
     const history = useHistory();
 
+    // Fetch user data on component mount
     const handleMount = async () => {
         try {
-            const { data } = await axiosRes.get('dj-rest-auth/user/')
-            setCurrentUser(data)
+            const { data } = await axiosRes.get('dj-rest-auth/user/');
+            setCurrentUser(data);
         } catch (err) {
-            console.log(err)
+            console.log(err);
         }
-    }
+    };
 
     useEffect(() => {
-        handleMount()
+        handleMount();
     }, []);
 
+    // Intercept requests and handle token refresh
     useMemo(() => {
         axiosReq.interceptors.request.use(
             async (config) => {
@@ -40,7 +45,7 @@ export const CurrentUserProvider = ({ children }) => {
                             }
                             return null;
                         });
-                        removeTokenTimestamp()
+                        removeTokenTimestamp();
                         return config;
                     }
                 }
@@ -51,6 +56,7 @@ export const CurrentUserProvider = ({ children }) => {
             }
         );
 
+        // Intercept responses and handle unauthorized status
         axiosRes.interceptors.response.use(
             (response) => response,
             async (err) => {
@@ -64,7 +70,7 @@ export const CurrentUserProvider = ({ children }) => {
                             }
                             return null;
                         });
-                        removeTokenTimestamp()
+                        removeTokenTimestamp();
                     }
                     return axios(err.config);
                 }

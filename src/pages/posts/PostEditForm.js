@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -7,11 +6,9 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -35,7 +32,7 @@ function PostEditForm() {
             try {
                 const { data } = await axiosReq.get(`/posts/${id}/`);
                 const { title, location, content, image, is_owner } = data;
-
+                // If the user is not the owner, redirect to home page
                 is_owner ? setPostData({ title, location, content, image }) : history.push("/");
             } catch (err) {
                 console.log(err);
@@ -46,6 +43,7 @@ function PostEditForm() {
     }, [history, id]);
 
     const handleChange = (event) => {
+        // Update state based on input changes
         setPostData({
             ...postData,
             [event.target.name]: event.target.value,
@@ -54,6 +52,7 @@ function PostEditForm() {
 
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
+             // Revoke existing object URL and set new image URL
             URL.revokeObjectURL(image);
             setPostData({
                 ...postData,
@@ -75,6 +74,7 @@ function PostEditForm() {
         }
 
         try {
+            // Submit form data and redirect to post details page
             await axiosReq.put(`/posts/${id}/`, formData);
             history.push(`/posts/${id}`);
         } catch (err) {
@@ -87,6 +87,7 @@ function PostEditForm() {
 
     const textFields = (
         <div className="text-center">
+            {/* Title input */}
             <Form.Group>
                 <Form.Label>Title</Form.Label>
                 <Form.Control
@@ -96,12 +97,14 @@ function PostEditForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {/* Display title validation errors */}
             {errors?.title?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                     {message}
                 </Alert>
             ))}
 
+            {/* Location input */}
             <Form.Group>
                 <Form.Label>Location</Form.Label>
                 <Form.Control
@@ -111,12 +114,14 @@ function PostEditForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {/* Display location validation errors */}
             {errors?.location?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                     {message}
                 </Alert>
             ))}
 
+            {/* Content textarea */}
             <Form.Group>
                 <Form.Label>Content</Form.Label>
                 <Form.Control
@@ -127,18 +132,20 @@ function PostEditForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {/* Display content validation errors */}
             {errors?.content?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                     {message}
                 </Alert>
             ))}
-
+            {/* Cancel button */}
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Blue}`}
                 onClick={() => history.goBack()}
             >
                 cancel
             </Button>
+            {/* Save button */}
             <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
                 save
             </Button>
@@ -148,15 +155,18 @@ function PostEditForm() {
     return (
         <Form onSubmit={handleSubmit}>
             <Row>
+                {/* Left column for mobile view */}
                 <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
                     <Container
                         className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
                     >
                         <Form.Group className="text-center">
+                            {/* Display image */}
                             <figure>
                                 <Image className={appStyles.Image} src={image} rounded />
                             </figure>
                             <div>
+                                {/* Change image button */}
                                 <Form.Label
                                     className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
                                     htmlFor="image-upload"
@@ -165,6 +175,7 @@ function PostEditForm() {
                                 </Form.Label>
                             </div>
 
+                            {/* Image upload input */}
                             <Form.File
                                 id="image-upload"
                                 accept="image/*"
@@ -172,15 +183,17 @@ function PostEditForm() {
                                 ref={imageInput}
                             />
                         </Form.Group>
+                        {/* Display image validation errors */}
                         {errors?.image?.map((message, idx) => (
                             <Alert variant="warning" key={idx}>
                                 {message}
                             </Alert>
                         ))}
-
+                        {/* Render text fields for mobile view */}
                         <div className="d-md-none">{textFields}</div>
                     </Container>
                 </Col>
+                {/* Right column for desktop view */}
                 <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
                     <Container className={appStyles.Content}>{textFields}</Container>
                 </Col>

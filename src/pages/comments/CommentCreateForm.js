@@ -10,23 +10,30 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
+
+  // State for comment content
   const [content, setContent] = useState("");
 
+  // Handle input changes
   const handleChange = (event) => {
     setContent(event.target.value);
   };
 
+  // Handle comment submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      // Create a new comment using the provided data
       const { data } = await axiosRes.post("/comments/", {
         content,
         post,
       });
+      // Update the comments list with the new comment
       setComments((prevComments) => ({
         ...prevComments,
         results: [data, ...prevComments.results],
       }));
+      // Update the post's comments count
       setPost((prevPost) => ({
         results: [
           {
@@ -35,6 +42,7 @@ function CommentCreateForm(props) {
           },
         ],
       }));
+      // Clear the comment input field
       setContent("");
     } catch (err) {
       console.log(err);
@@ -45,9 +53,11 @@ function CommentCreateForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
+          {/* Link to user profile */}
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profileImage} />
           </Link>
+          {/* Comment input */}
           <Form.Control
             className={styles.Form}
             placeholder="my comment..."
@@ -58,6 +68,7 @@ function CommentCreateForm(props) {
           />
         </InputGroup>
       </Form.Group>
+      {/* Post button */}
       <button
         className={`${styles.Button} btn d-block ml-auto`}
         disabled={!content.trim()}

@@ -18,6 +18,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function PostCreateForm() {
+    // Redirect if user is logged out
     useRedirect('loggedOut');
     const [errors, setErrors] = useState({});
 
@@ -33,6 +34,7 @@ function PostCreateForm() {
     const history = useHistory();
 
     const handleChange = (event) => {
+        // Update state based on input changes
         setPostData({
             ...postData,
             [event.target.name]: event.target.value,
@@ -41,6 +43,7 @@ function PostCreateForm() {
 
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
+            // Revoke existing object URL and set new image URL
             URL.revokeObjectURL(image);
             setPostData({
                 ...postData,
@@ -50,16 +53,17 @@ function PostCreateForm() {
     };
 
     const handleSubmit = async (event) => {
-        event.preventDefault()
+        event.preventDefault();
         const formData = new FormData();
 
-        formData.append('title', title)
-        formData.append('location', location)
-        formData.append('content', content)
-        formData.append('image', imageInput.current.files[0])
+        formData.append('title', title);
+        formData.append('location', location);
+        formData.append('content', content);
+        formData.append('image', imageInput.current.files[0]);
 
         const newErrors = {};
 
+        // Validate form fields
         if (!title) {
             newErrors.title = ["This field may not be blank."];
         }
@@ -79,18 +83,20 @@ function PostCreateForm() {
         }
 
         try {
+            // Submit form data and redirect to post details page
             const { data } = await axiosReq.post('/posts/', formData);
-            history.push(`/posts/${data.id}`)
+            history.push(`/posts/${data.id}`);
         } catch (err) {
-            console.log(err)
+            console.log(err);
             if (err.response?.status !== 401) {
-                setErrors(err.response?.data)
+                setErrors(err.response?.data);
             }
         }
-    }
+    };
 
     const textFields = (
         <div className="text-center">
+            {/* Title input */}
             <Form.Group>
                 <Form.Label>Title</Form.Label>
                 <Form.Control
@@ -100,11 +106,13 @@ function PostCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {/* Display title validation errors */}
             {errors?.title?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                     {message}
                 </Alert>
             ))}
+            {/* Location input */}
             <Form.Group>
                 <Form.Label>Location</Form.Label>
                 <Form.Control
@@ -114,11 +122,13 @@ function PostCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {/* Display location validation errors */}
             {errors?.location?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                     {message}
                 </Alert>
             ))}
+            {/* Content textarea */}
             <Form.Group>
                 <Form.Label>Content</Form.Label>
                 <Form.Control
@@ -129,17 +139,20 @@ function PostCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {/* Display content validation errors */}
             {errors?.content?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                     {message}
                 </Alert>
             ))}
+            {/* Cancel button */}
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Green} ${btnStyles.Black}`}
                 onClick={() => history.goBack()}
             >
                 cancel
             </Button>
+            {/* Create button */}
             <Button className={`${btnStyles.Button} ${btnStyles.Green} ${btnStyles.Black}`} type="submit">
                 create
             </Button>
@@ -149,11 +162,13 @@ function PostCreateForm() {
     return (
         <Form onSubmit={handleSubmit}>
             <Row>
+                {/* Left column for mobile view */}
                 <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
                     <Container
                         className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
                     >
                         <Form.Group className="text-center">
+                            {/* Display image if available */}
                             {image ? (
                                 <>
                                     <figure>
@@ -179,7 +194,7 @@ function PostCreateForm() {
                                     />
                                 </Form.Label>
                             )}
-
+                            {/* Image upload input */}
                             <Form.File
                                 id="image-upload"
                                 accept="image/*"
@@ -187,14 +202,17 @@ function PostCreateForm() {
                                 ref={imageInput}
                             />
                         </Form.Group>
+                        {/* Display image validation errors */}
                         {errors?.image?.map((message, idx) => (
                             <Alert variant="warning" key={idx}>
                                 {message}
                             </Alert>
                         ))}
+                        {/* Render text fields for mobile view */}
                         <div className="d-md-none">{textFields}</div>
                     </Container>
                 </Col>
+                {/* Right column for desktop view */}
                 <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
                     <Container className={appStyles.Content}>{textFields}</Container>
                 </Col>

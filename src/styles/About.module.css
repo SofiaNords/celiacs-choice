@@ -1,0 +1,14 @@
+.Header {
+    text-align: center;
+    font-family: "Anton SC", sans-serif;
+    padding-top: 25px;
+}
+
+.Content {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.Mission {
+    background-color: ghostwhite;
+}

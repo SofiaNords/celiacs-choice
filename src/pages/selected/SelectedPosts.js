@@ -18,6 +18,10 @@ const SelectedPosts = ({ mobile }) => {
 
     useEffect(() => {
         const handleMount = async () => {
+            if (!currentUser) {
+                setIsLoading(false);
+                return;
+            }
             setIsLoading(true);
             try {
                 const { data } = await axiosReq.get(

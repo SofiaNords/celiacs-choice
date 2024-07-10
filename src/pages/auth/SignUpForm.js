@@ -4,7 +4,7 @@ import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
-import hero from "../../assets/hero.jpg"
+import hero from "../../assets/hero.jpg";
 
 import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
 import axios from "axios";
@@ -12,7 +12,10 @@ import { Link, useHistory } from "react-router-dom";
 import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
+    // Redirect to the home page if the user is already logged in
     useRedirect('loggedIn');
+
+    // State for sign-up form data
     const [signUpData, setSignUpData] = useState({
         username: "",
         password1: "",
@@ -20,10 +23,12 @@ const SignUpForm = () => {
     });
     const { username, password1, password2 } = signUpData;
 
+    // State for form validation errors
     const [errors, setErrors] = useState({});
 
     const history = useHistory();
 
+    // Handle input changes
     const handleChange = (event) => {
         setSignUpData({
             ...signUpData,
@@ -31,6 +36,7 @@ const SignUpForm = () => {
         });
     };
 
+    // Handle form submission
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -45,9 +51,10 @@ const SignUpForm = () => {
         <Row className={styles.Row}>
             <Col className="my-auto py-2 p-md-2" md={6}>
                 <Container className={`${appStyles.Content} p-4 `}>
+                    {/* Sign-up form header */}
                     <h1 className={styles.Header}>sign up</h1>
-
                     <Form onSubmit={handleSubmit}>
+                        {/* Username input */}
                         <Form.Group controlId="username">
                             <Form.Label>Username</Form.Label>
                             <Form.Control
@@ -61,7 +68,7 @@ const SignUpForm = () => {
                         {errors.username?.map((message, idx) => (
                             <Alert variant="warning" key={idx}>{message}</Alert>
                         ))}
-
+                        {/* Password input */}
                         <Form.Group controlId="password1">
                             <Form.Label>Password</Form.Label>
                             <Form.Control
@@ -75,7 +82,7 @@ const SignUpForm = () => {
                         {errors.password1?.map((message, idx) => (
                             <Alert variant="warning" key={idx}>{message}</Alert>
                         ))}
-
+                        {/* Confirm password input */}
                         <Form.Group controlId="password2">
                             <Form.Label>Confirm Password</Form.Label>
                             <Form.Control
@@ -89,7 +96,7 @@ const SignUpForm = () => {
                         {errors.password2?.map((message, idx) => (
                             <Alert variant="warning" key={idx}>{message}</Alert>
                         ))}
-
+                        {/* Sign-up button */}
                         <Button className={`${btnStyles.Button} ${btnStyles.Green} ${btnStyles.Black} ${btnStyles.Wide}`} type="submit">
                             Sign up
                         </Button>
@@ -97,14 +104,15 @@ const SignUpForm = () => {
                             <Alert variant="warning" key={idx} className="mt-3">{message}</Alert>
                         ))}
                     </Form>
-
                 </Container>
+                {/* Sign-in link */}
                 <Container className={`mt-3 ${appStyles.Content}`}>
                     <Link className={styles.Link} to="/signin">
                         Already have an account? <span>Sign in</span>
                     </Link>
                 </Container>
             </Col>
+            {/* Display image on larger screens */}
             <Col
                 md={6}
                 className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}

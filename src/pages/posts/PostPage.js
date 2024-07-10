@@ -35,8 +35,6 @@ function PostPage() {
         ]);
         setPost({ results: [post] });
         setComments(comments);
-        console.log("post in postsPage = ",post)
-        console.log("comments in postsPage",comments)
       } catch (err) {
         console.log(err);
       }
@@ -47,11 +45,13 @@ function PostPage() {
 
   return (
     <Row className="h-100">
+      {/* Left column */}
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <SelectedPosts mobile />
         <Post {...post.results[0]} setPosts={setPost} postPage />
         <Container className={appStyles.Content}>
           {currentUser ? (
+            // Display comment form for logged-in users
             <CommentCreateForm
               profile_id={currentUser.profile_id}
               profileImage={profile_image}
@@ -60,9 +60,11 @@ function PostPage() {
               setComments={setComments}
             />
           ) : comments.results.length ? (
+            // Display "Comments" if there are comments
             "Comments"
           ) : null}
           {comments.results.length ? (
+            // Display comments with infinite scroll
             <InfiniteScroll
               children={comments.results.map((comment) => (
                 <Comment
@@ -78,12 +80,15 @@ function PostPage() {
               next={() => fetchMoreData(comments, setComments)}
             />
           ) : currentUser ? (
+            // Display message for logged-in users with no comments
             <span>No comments yet, be the first to comment!</span>
           ) : (
+            // Display message for non-logged-in users with no comments
             <span>No comments... yet</span>
           )}
         </Container>
       </Col>
+      {/* Right column */}
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <SelectedPosts />
       </Col>

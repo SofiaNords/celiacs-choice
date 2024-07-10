@@ -20,14 +20,19 @@ const Comment = (props) => {
         setComments,
     } = props;
 
+    // State to control whether the edit form is displayed
     const [showEditForm, setShowEditForm] = useState(false);
 
+    // Get the current user from context
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
 
+    // Handle comment deletion
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/comments/${id}/`);
+
+            // Update post comments count
             setPost((prevPost) => ({
                 results: [
                     {
@@ -37,23 +42,30 @@ const Comment = (props) => {
                 ],
             }));
 
+            // Remove the deleted comment from the comments list
             setComments((prevComments) => ({
                 ...prevComments,
                 results: prevComments.results.filter((comment) => comment.id !== id),
             }));
-        } catch (err) { }
+        } catch (err) { 
+            // Handle error (if needed)
+        }
     };
 
     return (
         <>
             <hr />
             <Media>
+                {/* Link to user profile */}
                 <Link to={`/profiles/${profile_id}`}>
                     <Avatar src={profile_image} />
                 </Link>
                 <Media.Body className="align-self-center ml-2">
+                    {/* Display comment owner and timestamp */}
                     <span className={styles.Owner}>{owner}</span>
                     <span className={styles.Date}>{updated_at}</span>
+
+                    {/* Display comment content or edit form */}
                     {showEditForm ? (
                         <CommentEditForm
                             id={id}
@@ -67,6 +79,8 @@ const Comment = (props) => {
                         <p>{content}</p>
                     )}
                 </Media.Body>
+
+                {/* Display more options dropdown for comment owner */}
                 {is_owner && !showEditForm && (
                     <MoreDropdown
                         handleEdit={() => setShowEditForm(true)}
