@@ -3,7 +3,7 @@ Celiac's Choice is a platform for gluten-free dining experiences. The site promo
 
 View the full website [here.](https://celiacs-choice-1569a3d67327.herokuapp.com/)
 
-![responsive](../celiacs-choice/docs/responsive.png)
+![responsive](docs/responsive.png)
 
 The application is developed using the Django Rest framework for the back end and React for the front end.
 
