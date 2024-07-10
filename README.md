@@ -1,5 +1,9 @@
+# Celiac's Choice - Introduction
+Celiac's Choice is a platform for gluten-free dining experiences. The site promotes gluten-free awareness and supporting the celiac community. The platform allows users to share their favorite gluten-free restaurants and cafés, complete with mouthwatering photos and locations. The user can engage with other users by commenting on their posts and building their own Selected Choices list. 
 
-At the moment each of the PopularProfiles components makes its own API request, and contains its own version of the profiles state. Given that we need to access profile data in several places around our application, it would make sense for all our profile data to be in sync across all the components that need to access it. So in order to have one source of truth for our profile data state, we should move it into a context provider.
+View the full website [here.](https://celiacs-choice-1569a3d67327.herokuapp.com/)
+
+![](../celiacs-choice/docs/images/responsive.png)
 
 ## Bugs
 
