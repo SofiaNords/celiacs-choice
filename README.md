@@ -9,6 +9,72 @@ The application is developed using the Django Rest framework for the back end an
 
 This is the front end part of the project, the back end part can be found [here.](https://github.com/SofiaNords/celiacs-api)
 
+## User Experience - UX
+
+### User Stories
+
+1. As a logged in user I can create posts so that I can share my choices of gluten free food and location with other users.
+
+2. As a logged in user, I want to be able to mark the posts that interest me, so that I can easily find them next time I log in.
+
+3. As a user I can view the details of a single post so that I can learn more about it.
+
+4. As a new user, I would like to register on the site, so that I can make full use of the site.
+
+5. As a user I can tell if I am logged in or not so that I can log in if I need to.
+
+6. As a user I can maintain my logged-in status until I choose to log out so that my user experience is not compromised.
+
+7. As a user I can view a navbar form every page so that I can navigate easily between pages.
+
+8. As a logged out user I can see sign in and sign up options so that I can sign in/ sign up
+
+9. As a user I can navigate through pages quickly so that I can view content seamlessly without page refresh
+
+10. As a logged in user I can see a list of the titles of my selected posts so that I can easily navigate to any one of them.
+
+11. As a registered user, I would like to be able to navigate to a page where only my selected posts are displayed, so that I can easily browse through the posts I have selected.
+
+12. As a visitor to the site, I want to be able to read about what the site is for so that I know whether I want to become a user or not.
+
+13. As a user I can see how long ago a comment was made so that I know how old a comment is.
+
+14. As a logged in user I can add comments to a post so that I can share my thoughts about the post.
+
+15. As an owner of a comment I can delete my comment so that I can control removal of my comment from the application
+
+16. As an owner of a comment I can edit my comment so that I can fix or update my existing comment
+
+17. As a post owner I can edit my post title and description so that I can make corrections or update my post after it was created.
+
+18. As a user I can view the posts page so that I can read the comments about the post.
+
+19. As a user I can read comments on posts so that I can read what other users think about the posts
+
+20. As a user I can keep scrolling through the posts on the site, that are loaded for me automatically so that I don't have to click in "next page" etc.
+
+21. As a visitor to the site, I want to be able to read other users posts so that I know what the content of the page look like.
+
+22. As a user I can view all the most recent posts, ordered by most recently created first so that I am up to date with the newest content
+
+23. As a visitor to the site, I want to be able to search through the posts, so that I can easily find what interests me.
+
+24. As a visitor of the site, I can see that I have to log in to be able to add posts to my list with selected posts so that I understand that I have to create an account to fully utilise the site
+
+25. As a logged in user I can edit my profile so that I can change my profile picture and bio
+
+26. As a logged in user I can select and unselect other users posts so that I can see and remove posts in my list with selected posts.
+
+27. As a logged in user I can edit my profile so that I can change my profile picture and bio
+
+28. As a logged in user I can select and unselect other users posts so that I can see and remove posts in my list with selected posts.
+
+29. As a user I can view my own profile so that I can see my collected posts
+
+30. As a user I can view my own statistics about how many posts I have posted and how many others posts I selected.
+
+31. As a logged in user I can update my username and password so that I can change my display name and keep my profile secure
+
 ## Bugs
 
 Warning didn't appear under username in Sign in ....
