@@ -22,6 +22,8 @@ This is the front end part of the project, the back end part can be found [here.
             - [Epics](#epics)
             - [User Stories in GitHub](#user-stories-in-github)
     - [Design](#design)
+        - [Wireframes](#wireframes)
+        - [Colour Scheme](#colour-scheme)
 
 
 
@@ -159,6 +161,10 @@ About page
 
 Sign up
 ![wireframe 8](docs/images/wf-8.png)
+
+#### Colour Scheme
+
+![colour scheme](docs/images/color-scheme.png)
 
 ## Bugs
 
