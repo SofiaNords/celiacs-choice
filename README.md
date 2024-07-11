@@ -206,12 +206,37 @@ Sign up
 - A registered user can sign in by filling in the Sign in form.
 
 
-#### Select posts
+#### Select & Unselect posts
 ![select posts](docs/images/feature_6.png)
 
 - When logged in a user can click on the select button to select a post. The button turns green and the post title and author shows up in the "Selected Choices List" after refreshing the page. 
 
 ![selected choices list](docs/images/feature_7.png)
+
+- If the user wants to unselect a post, they just click the select button again and the button turns grey and the title and author disappear from the "Selected Choices List" after refreshing the page.
+
+#### View Selected Posts
+![view select posts](docs/images/feature_8.png)
+
+- When the user clicks on Selected Posts in the Navbar, a feed is presented with only the posts that the current user has added to their list.
+- The user can always access a specific selected post by clicking on the title in the "Selected Choices List".
+
+
+#### Comment a post
+![comment a posts](docs/images/feature_9.png)
+
+- When logged in, the user can click on a post to access the option to leave a comment.
+- The user can edit and delete their own comments by clicking on the three dots to the right of the comment.
+
+
+#### Create a post
+
+
+#### Edit profile
+
+
+#### Navigate and Logout
+
 
 ### Future Features
 
@@ -227,7 +252,7 @@ In a future feature I would add a similar overlay trigger to the comment icon th
 
 #### Selected Posts List
 In the existing feature, the user has to refresh the page after selecting a post in order to see the post in the "Selected Choices List".
-In a future feature I would add a useEffect function to update the component SelectPosts when the user clicks the select button. This way the page would not need to be refreshed before the title becomes visible in the list
+In a future feature I would add a useEffect function to update the component SelectPosts when the user clicks the select button. This way the page would not need to be refreshed before the title becomes visible in the list.
 
 
 
