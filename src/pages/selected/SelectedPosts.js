@@ -61,7 +61,8 @@ const SelectedPosts = ({ mobile }) => {
                 // Display message when no selected posts found
                 <>
                 <p>Selected Choices List</p>
-                <p>The list is empty for now. Please make your selections to add posts the list.</p>
+                <p>The list is empty for now. Please make your selections to add posts to the list.</p>
+                <p>You have to be logged in to be able to select posts and view your Selected Choices List.</p>
                 </>
             )}
         </Container>

@@ -24,6 +24,9 @@ This is the front end part of the project, the back end part can be found [here.
     - [Design](#design)
         - [Wireframes](#wireframes)
         - [Colour Scheme](#colour-scheme)
+- [Features](#features)
+    - [Existing Features](#existing-features)
+    - [Future Features](#future-features)
 
 
 
@@ -165,6 +168,30 @@ Sign up
 #### Colour Scheme
 
 ![colour scheme](docs/images/color-scheme.png)
+
+## Features
+
+### Existing Features
+
+Home Page when signed out
+![home page](docs/images/feature_1.png)
+
+- The page visitor has direct access to the posts and can click on an optional story to access the detailed view of the story.
+- The visitor is informed that they must be logged in to select posts in the Selected Choices list.
+
+The About Page
+
+
+
+
+
+### Future Features
+
+#### Messages in Selected Choices List
+In the existing feature the Selected Choices List shows the same message whether you are logged in or not. In a future feature I would display different messages whether you are logged in or not. If you are logged out the message would say something like "Log in to view your Selected Choices List" while the logged in message would say "The list is empty for now. Please make your selections to add posts to the list."
+
+
+
 
 ## Bugs
 

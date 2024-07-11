@@ -8,7 +8,7 @@ function About() {
   return (
     <Container>
       <Row>
-        <Col xs={12} md={8}>
+        <Col className={styles.Background} xs={12} md={8}>
           {/* Header section */}
           <h1 className={styles.Header}>About Celiac's Choice</h1>
           <p>
