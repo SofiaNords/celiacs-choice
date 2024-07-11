@@ -3,11 +3,21 @@ Celiac's Choice is a platform for gluten-free dining experiences. The site promo
 
 View the full website [here.](https://celiacs-choice-1569a3d67327.herokuapp.com/)
 
-![responsive](docs/responsive.png)
+![responsive](docs/images/responsive.png)
 
 The application is developed using the Django Rest framework for the back end and React for the front end.
 
 This is the front end part of the project, the back end part can be found [here.](https://github.com/SofiaNords/celiacs-api)
+
+## Table of Content
+
+- [Celiac's Choice - Introduction](#celiacs-choice---introduction)
+- [Table of Content](#table-of-content)
+- [User Experience - UX](#user-experience---ux)
+    - [User Stories](#user-stories)
+    - [Project Planning](#project-planning)
+
+
 
 ## User Experience - UX
 
@@ -74,6 +84,46 @@ This is the front end part of the project, the back end part can be found [here.
 30. As a user I can view my own statistics about how many posts I have posted and how many others posts I selected.
 
 31. As a logged in user I can update my username and password so that I can change my display name and keep my profile secure
+
+### Project planning
+
+#### Agile Methodologies
+
+##### Kanban Board
+
+I have used the [project board in Git Hub](https://github.com/users/SofiaNords/projects/6/views/1?filterQuery=-status%3A%22Ready+for+Back+End%22) for my project planning. It has helped me to get an overview of the project and to see the progress. I added a column named "Ready for Front End" and one named "Ready for Back End", so when I was done with the Back End parts of the user story, I moved it to "Ready for Front End". In hindsight, I didn't need the "Ready for Back End" column because I started with the Back End part for all user stories. During the project I have chosen to hide this column to get a better overview of my Kanban Board.
+
+![kanban](docs/images/kanban.png)
+
+I also included Issues for tasks that are not directly linked to a specific user story, e.g. tasks linked to project planning and workspace installation, and labelled them "Setup etc.". 
+
+![setup](docs/images/setup-label.png)
+
+##### Milestones
+
+My milstones in this project are:
+
+- Project planning
+- Back End
+- Front End
+- Testing
+- README
+
+since these large delimited parts of the project gave me an overview of how I was doing in broad terms.
+
+![milestones](docs/images/milestones.png)
+
+##### Epics
+
+I categorised and labelled the user stories into the following epics:
+
+![epics](docs/images/epics.png)
+
+##### User Stories in GitHub
+
+You can access User Stories in Git Hub [here.](https://github.com/SofiaNords/celiacs-api/issues?q=label%3A%22User+Story%22) In the picture below you can see how I've labelled them with epics and a label showing that it is a user story.
+
+![user-storeis](docs/images/user-stories.png)
 
 ## Bugs
 
