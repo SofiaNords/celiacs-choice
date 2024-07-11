@@ -16,6 +16,13 @@ This is the front end part of the project, the back end part can be found [here.
 - [User Experience - UX](#user-experience---ux)
     - [User Stories](#user-stories)
     - [Project Planning](#project-planning)
+        - [Agile Methodologies](#agile-methodologies)
+            - [Kanban Board](#kanban-board)
+            - [Milestones](#milestones)
+            - [Epics](#epics)
+            - [User Stories in GitHub](#user-stories-in-github)
+    - [Design](#design)
+
 
 
 
@@ -123,7 +130,35 @@ I categorised and labelled the user stories into the following epics:
 
 You can access User Stories in Git Hub [here.](https://github.com/SofiaNords/celiacs-api/issues?q=label%3A%22User+Story%22) In the picture below you can see how I've labelled them with epics and a label showing that it is a user story.
 
-![user-storeis](docs/images/user-stories.png)
+![user-stories](docs/images/user-stories.png)
+
+### Design
+
+#### Wireframes
+
+Home page when signed out
+![wireframe 1](docs/images/wf-1.png)
+
+Home page when signed in
+![wireframe 2](docs/images/wf-2.png)
+
+Selected posts
+![wireframe 3](docs/images/wf-3.png)
+
+Post detail
+![wireframe 4](docs/images/wf-4.png)
+
+Profile page
+![wireframe 5](docs/images/wf-5.png)
+
+Add post
+![wireframe 6](docs/images/wf-6.png)
+
+About page
+![wireframe 7](docs/images/wf-7.png)
+
+Sign up
+![wireframe 8](docs/images/wf-8.png)
 
 ## Bugs
 
