@@ -27,6 +27,16 @@ This is the front end part of the project, the back end part can be found [here.
 - [Features](#features)
     - [Existing Features](#existing-features)
     - [Future Features](#future-features)
+- [Technologies Used](#technologies-used)
+    - [Languages Used](#languages-used)
+    - [Frameworks Libraries Tools & Programs Used](#frameworks-libraries-tools--programs)
+- [Testing](#testing)
+- [Bugs](#bugs)
+- [Deployment](#deployment)
+- [Credits](#credits)
+    - [Code Used](#code-used)
+    - [Inspiration](#inspiration)
+    - [Acknowledgements](#acknowledgements)
 
 
 
@@ -265,14 +275,9 @@ In the existing feature, the user has to refresh the page after selecting a post
 In a future feature I would add a useEffect function to update the component SelectPosts when the user clicks the select button. This way the page would not need to be refreshed before the title becomes visible in the list.
 
 
-
-
-## Bugs
-
-Warning didn't appear under username in Sign in ....
-
 ## Technologies Used
 
+### Languages Used
 
 ### Frameworks, Libraries, Tools & Programs
 
@@ -281,78 +286,25 @@ Warning didn't appear under username in Sign in ....
 - [GitHub](https://github.com/) - Used to store the code
 - [GitPod](https://www.gitpod.io/) - Used as the IDE for development
 jwt decode
+- [Pexels](https://www.pexels.com/) - Used as an image source
 - [React](https://react.dev/) - Used for building user interface
 - [React Bootstrap](https://react-bootstrap.netlify.app/) - Used for styling the project
 - [React Infinite Scroll Component](https://www.npmjs.com/package/react-infinite-scroll-component) - Used for infinite scroll feature
 - [React Router](https://reactrouter.com/en/6.24.0/web/guides/quick-start) - Used for handling routing in the application
+- [Tinify](https://tinypng.com/) - Used to convert and reduce the size of images
 
-# Getting Started with Create React App
+## Testing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Bugs
 
-## Available Scripts
+Warning didn't appear under username in Sign in ....
 
-In the project directory, you can run:
+## Deployment
 
-### `npm start`
+## Credits
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Code Used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Inspiration
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Acknowledgements
