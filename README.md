@@ -230,13 +230,23 @@ Sign up
 
 
 #### Create a post
+![create a posts](docs/images/feature_10.png)
 
+- A logged in user has access to the "Add post" button. When the user clicks on "Add post", they can create their post with title, location, content and upload an image. After clicking "create" the post is visible in the feed at the Home page.
+- A logged in user can edit och delete a story they have created themselves by clicking on the post and then the three dots to the right in the head of the post.
 
 #### Edit profile
+![Edit profile](docs/images/feature_11.png)
 
+- Users can edit their profile on the profile page. 
+- They can add a profile picture and a "bio".
+- They also have the option to change their username or password.
 
-#### Navigate and Logout
+#### Navigate and Log out
+![Navigate & Log out](docs/images/feature_12.png)
 
+- The user navigates in the Navbar at the top of the page.
+- When logged in the user can click on the "Sign out" icon to log out.
 
 ### Future Features
 
