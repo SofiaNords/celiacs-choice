@@ -173,24 +173,45 @@ Sign up
 
 ### Existing Features
 
-Home Page when signed out
+#### Home Page when signed out
 ![home page](docs/images/feature_1.png)
 
 - The page visitor has direct access to the posts and can click on an optional story to access the detailed view of the story.
 - The visitor is informed that they must be logged in to select posts in the Selected Choices list.
 
 
-The About Page
+#### The About Page
 ![about page](docs/images/feature_2.png)
 
 - A user can read about the website's purpose an get instructions in how it works to use the site. The About page can be accessed whether you are logged in or not. 
 
 
-Post Page when signed out
-![about page](docs/images/feature_3.png)
+#### Post Page when signed out
+![post page](docs/images/feature_3.png)
 
-- When page visitor click on an optional story they can read the comments of the post.
-- Visitor get's informed about that you have to log in to select a post.
+- When page visitor click on an optional post they can read the comments of the post.
+- The visitor is informed that you must log in to select a post.
+
+
+#### Sign up page
+![sign up page](docs/images/feature_4.png)
+
+- A page visitor can click on Sign up in the Navbar an fill out the Sign up form.
+- The user will be redirected to the login page when they click on the Register button provided the details are authorised.
+
+
+#### Sign in page
+![sign in page](docs/images/feature_5.png)
+
+- A registered user can sign in by filling in the Sign in form.
+
+
+#### Select posts
+![select posts](docs/images/feature_6.png)
+
+- When logged in a user can click on the select button to select a post. The button turns green and the post title and author shows up in the "Selected Choices List" after refreshing the page. 
+
+![selected choices list](docs/images/feature_7.png)
 
 ### Future Features
 
@@ -199,6 +220,14 @@ In the existing feature the Selected Choices List shows the same message whether
 
 #### Links in the About Page
 In the existing feature you have to use the Sign in and Sign up icons in the Navbar to reach the Sign in page or the Sign up page. In a future feature I would add links to the pages in the text about "How It Works" and "Join Us".
+
+#### Overlay trigger Comments
+In the existing feature, when the visitor to the page hovers over the select button in the post view, they are informed that they need to log in to select a post. [See image here.](#post-page-when-signed-out)
+In a future feature I would add a similar overlay trigger to the comment icon that says you have to log in to write a comment.
+
+#### Selected Posts List
+In the existing feature, the user has to refresh the page after selecting a post in order to see the post in the "Selected Choices List".
+In a future feature I would add a useEffect function to update the component SelectPosts when the user clicks the select button. This way the page would not need to be refreshed before the title becomes visible in the list
 
 
 
