@@ -5,9 +5,9 @@ View the full website [here.](https://celiacs-choice-1569a3d67327.herokuapp.com/
 
 ![responsive](docs/images/responsive.png)
 
-The application is developed using the Django Rest framework for the back end and React for the front end.
+The application is developed using the Django Rest framework for the Back end and React for the Front end.
 
-This is the front end part of the project, the back end part can be found [here.](https://github.com/SofiaNords/celiacs-api)
+This is the Front end part of the project, the Back end part can be found [here.](https://github.com/SofiaNords/celiacs-api)
 
 ## Table of Content
 
@@ -294,6 +294,8 @@ jwt decode
 - [Tinify](https://tinypng.com/) - Used to convert and reduce the size of images
 
 ## Testing
+
+[Test Document](https://docs.google.com/spreadsheets/d/1cT4z1t5p8EcwzSDX7WlpFXLf3zcVW32OgnlrwBf_hpk/edit?usp=sharing)
 
 ## Bugs
 
