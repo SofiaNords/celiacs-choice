@@ -274,6 +274,9 @@ In a future feature I would add a similar overlay trigger to the comment icon th
 In the existing feature, the user has to refresh the page after selecting a post in order to see the post in the "Selected Choices List".
 In a future feature I would add a useEffect function to update the component SelectPosts when the user clicks the select button. This way the page would not need to be refreshed before the title becomes visible in the list.
 
+#### Selected Posts Count
+
+
 
 ## Technologies Used
 

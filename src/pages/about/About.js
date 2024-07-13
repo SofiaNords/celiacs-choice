@@ -46,6 +46,7 @@ function About() {
           <Image
             className={`${appStyles.FillerImage}`}
             src={about}
+            alt="pizza slice"
           />
         </Col>
       </Row>
