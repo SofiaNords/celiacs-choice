@@ -335,6 +335,8 @@ The website was deployed using the Heroku platform and can be accessed [here.](h
 
 ### Code Used
 
-### Inspiration
+- The structure and the code of the project was based on the "Moments" walkthrough by Code Institute.
 
 ### Acknowledgements
+
+- I’d like to express my gratitude to my mentor, Spencer Barribal, for all the valuable advice and encouragement throughout the process.
