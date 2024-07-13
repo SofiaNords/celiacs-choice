@@ -151,28 +151,28 @@ You can access User Stories in Git Hub [here.](https://github.com/SofiaNords/cel
 
 #### Wireframes
 
-Home page when signed out
+##### Home page when signed out
 ![wireframe 1](docs/images/wf-1.png)
 
-Home page when signed in
+##### Home page when signed in
 ![wireframe 2](docs/images/wf-2.png)
 
-Selected posts
+##### Selected posts
 ![wireframe 3](docs/images/wf-3.png)
 
-Post detail
+##### Post detail
 ![wireframe 4](docs/images/wf-4.png)
 
-Profile page
+##### Profile page
 ![wireframe 5](docs/images/wf-5.png)
 
-Add post
+##### Add post
 ![wireframe 6](docs/images/wf-6.png)
 
-About page
+##### About page
 ![wireframe 7](docs/images/wf-7.png)
 
-Sign up
+##### Sign up
 ![wireframe 8](docs/images/wf-8.png)
 
 #### Colour Scheme
@@ -275,8 +275,7 @@ In the existing feature, the user has to refresh the page after selecting a post
 In a future feature I would add a useEffect function to update the component SelectPosts when the user clicks the select button. This way the page would not need to be refreshed before the title becomes visible in the list.
 
 #### Selected Posts Count
-
-
+In the existing feature, the list of selected posts does not show how many posts the user has selected. In a future feature I would display how many posts the user has selected to the right of the title. [See wireframe here.](#profile-page)
 
 ## Technologies Used
 
