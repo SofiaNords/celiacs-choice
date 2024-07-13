@@ -308,7 +308,15 @@ jwt decode
 
 ## Bugs
 
-Warning didn't appear under username in Sign in ....
+I noticed that there was no warning for when you have not filled in the username even though code for this has been added. 
+![warning sign in](docs/images/bug_1.png)
+![warning sign in](docs/images/bug_2.png)
+The same was true for Content in the form to create a post.
+![warning sign in](docs/images/bug_3.png)
+To solve this, I got help from Tutor Assistance to add the following controls to the handleSubmit function.
+![warning sign in](docs/images/bug_4.png)
+After that, I was able to add the corresponding controls myself in the function to create new posts.
+![warning sign in](docs/images/bug_5.png)
 
 ## Deployment
 
