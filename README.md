@@ -327,6 +327,10 @@ After that, I was able to add the corresponding controls myself in the function 
 
 ## Deployment
 
+The website was deployed using the Heroku platform and can be accessed [here.](https://celiacs-choice-1569a3d67327.herokuapp.com)
+
+
+
 ## Credits
 
 ### Code Used
