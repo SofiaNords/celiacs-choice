@@ -281,9 +281,16 @@ In the existing feature, the list of selected posts does not show how many posts
 
 ### Languages Used
 
+- HTML
+- CSS
+- JavaScript
+- JSX (JavaScript XML)
+
 ### Frameworks, Libraries, Tools & Programs
 
 - [Axios](https://axios-http.com/docs/intro) - Used for handeling requests to the API
+- [Balsamiq](https://balsamiq.cloud/) - Used to create wireframes
+- [Font Awsome](https://fontawesome.com/) - Used for navigation icons
 - [Git](https://git-scm.com/) - Used for version control
 - [GitHub](https://github.com/) - Used to store the code
 - [GitPod](https://www.gitpod.io/) - Used as the IDE for development
