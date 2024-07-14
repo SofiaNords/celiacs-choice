@@ -6,13 +6,7 @@ import appStyles from "../../App.module.css";
 
 import hero from "../../assets/hero.jpg";
 
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import Alert from "react-bootstrap/Alert";
+import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import { useRedirect } from "../../hooks/useRedirect";
