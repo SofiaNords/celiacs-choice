@@ -304,6 +304,8 @@ jwt decode
 
 ## Testing
 
+  
+
 [Test Document](https://docs.google.com/spreadsheets/d/1cT4z1t5p8EcwzSDX7WlpFXLf3zcVW32OgnlrwBf_hpk/edit?usp=sharing)
 
 ## Bugs
@@ -329,7 +331,37 @@ After that, I was able to add the corresponding controls myself in the function 
 
 The website was deployed using the Heroku platform and can be accessed [here.](https://celiacs-choice-1569a3d67327.herokuapp.com)
 
+1. Create a Heroku account: I you don't have a Heroku account already, create one. 
 
+2. Prepare your application: Commit and push code to your GitHub repository. Ensure that all necessary changes have been made and the latest version of the application is ready for deployment. 
+
+3. Create a new application on Heroku: From your Heroku dashboard, create a new application and select the appropriate region.
+
+4. Deployment process: In your Heroku dashboard, go to your application's deploy page. Connect your GitHub repository to your Heroku application under the "Deployment method" section. Under the "Manual deploy" section, select the branch you want to deploy and click "Deploy Branch".
+
+5. Verify Deployment: Once the deployment is successful, Heroku will provide an URL to access the live application. Test the application to ensure all components are functioning properly.
+
+Fork the repository
+
+1. Got to the GitHub repository.
+
+2. Click the button with FORK on it on your right hand side.
+
+3. A new page "Create new Fork" will open, you can also edit the name if you would like.
+
+4. At the bottom of the page - click on CREATE FORK.
+
+5. Now you have a copy of the project in your repositories.
+
+Clone the repository
+
+1. Go to the GitHub repository.
+
+2. Click on the Code tab and copy the web URL.
+
+3. Open the terminal in the code editor of your choice, and change the current working directory to the one you will use to clone the repository.
+
+4. Type: "git clone" inte the terminal and then paste the link you copied before and press ENTER.
 
 ## Credits
 
