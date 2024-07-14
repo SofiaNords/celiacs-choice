@@ -302,11 +302,11 @@ jwt decode
 - [React Router](https://reactrouter.com/en/6.24.0/web/guides/quick-start) - Used for handling routing in the application
 - [Tinify](https://tinypng.com/) - Used to convert and reduce the size of images
 
-## Testing
-
-  
+## Testing  
 
 [Test Document](https://docs.google.com/spreadsheets/d/1cT4z1t5p8EcwzSDX7WlpFXLf3zcVW32OgnlrwBf_hpk/edit?usp=sharing)
+
+As you can see in the above test document, there is room for improvement in the Lighthouse tests. Among other things, I have reduced the pagination to speed up the loading of the page. But there are further efforts to be made in the next release such as reducing the image size limit etc.
 
 ## Bugs
 
