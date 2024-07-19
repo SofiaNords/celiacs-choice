@@ -306,7 +306,7 @@ jwt decode
 
 [Test Document](https://docs.google.com/spreadsheets/d/1cT4z1t5p8EcwzSDX7WlpFXLf3zcVW32OgnlrwBf_hpk/edit?usp=sharing)
 
-As you can see in the above test document, there is room for improvement in the Lighthouse tests. Among other things, I have reduced the pagination to speed up the loading of the page. But there are further efforts to be made in the next release such as reducing the image size limit etc.
+As you can see in the above test document, there is room for improvement in the Lighthouse tests. For the next release, I intend to reduce pagination and the image size limit to improve performance.
 
 ## Bugs
 
