@@ -24,6 +24,7 @@ This is the Front end part of the project, the Back end part can be found [here.
     - [Design](#design)
         - [Wireframes](#wireframes)
         - [Colour Scheme](#colour-scheme)
+    - [Component Architecture and Reusability](#component-architecture-and-reusability)
 - [Features](#features)
     - [Existing Features](#existing-features)
     - [Future Features](#future-features)
@@ -178,6 +179,63 @@ You can access User Stories in Git Hub [here.](https://github.com/SofiaNords/cel
 #### Colour Scheme
 
 ![colour scheme](docs/images/color-scheme.png)
+
+### Component Architecture and Reusability
+
+#### Core Components
+
+##### Asset
+
+A component that displays a spinner, an image and a message. It's used across various parts of the application, such as PostCreateForm, PostPage, ProfilePage and SelectedPosts, to provide visual feedback during data loading or to display specific images for information.
+
+##### Avatar
+
+A component that displays user profile images. It's used in the NavBar, Comment, CommentCreateForm, and Post sections to maintain consistency and personalization across the application. 
+
+##### MoreDropdown
+
+A component that displays a dropdown menu. It's used in the Comment, Post and ProfilePage for various context-based actions.
+
+##### NavBar
+
+A component that displays a navigation bar. It's used on all pages to ensure seamless navigation across the app.
+
+#### Component Pages
+
+##### About
+
+- About: A component to display information about the application.
+
+##### Authentication
+
+- SignInForm: A component handling sign in.
+- SignUpForm: A component handling sign up.
+
+##### Comments
+
+- Comment: A component to display user comments.
+- CommentCreate: A compoonent to create comments.
+- CommentEditForm: A component to edit comments.
+
+##### Posts
+
+- Post: A component to display user posts.
+- PostCreateForm: A component to create posts.
+- PostEditForm: A component to edit posts.
+- PostPage: A component to display a detailed view of a specific post.
+- PostsPage: A component to list a view of posts. This page serves as the homepage and the Selected Posts Page.
+
+##### Profiles
+
+- ProfileEditForm: A component to edit profile.
+- ProfilePage: A component to display profiles.
+- UsernameForm: A component to change the username.
+- UserPasswordForm: A component to change the password.
+
+##### Selected
+
+- SelectedPosts: A component to display a users selected Posts.
+
 
 ## Features
 
