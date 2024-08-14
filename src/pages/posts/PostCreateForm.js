@@ -24,9 +24,11 @@ function PostCreateForm() {
         title: "",
         location: "",
         content: "",
+        score: "OK",
         image: "",
     });
-    const { title, location, content, image } = postData;
+
+    const { title, location, content, score, image } = postData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -57,6 +59,7 @@ function PostCreateForm() {
         formData.append('title', title);
         formData.append('location', location);
         formData.append('content', content);
+        formData.append('score', score);
         formData.append('image', imageInput.current.files[0]);
 
         const newErrors = {};
@@ -142,7 +145,21 @@ function PostCreateForm() {
                 <Alert variant="warning" key={idx}>
                     {message}
                 </Alert>
-            ))}      
+            ))}
+            {/* Score input */}
+            <Form.Group>
+                <Form.Label>Score</Form.Label>
+                <Form.Control
+                    as="select"
+                    name="score"
+                    value={score}
+                    onChange={handleChange}
+                >
+                    <option value="OK">Okay</option>
+                    <option value="GD">Good</option>
+                    <option value="GT">Great</option>
+                </Form.Control>
+            </Form.Group>
             {/* Cancel button */}
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Green} ${btnStyles.Black}`}

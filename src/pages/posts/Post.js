@@ -21,7 +21,7 @@ const Post = (props) => {
         title,
         location,
         content,
-        score,
+        score_display,
         image,
         updated_at,
         postPage,
@@ -112,7 +112,7 @@ const Post = (props) => {
                 {title && <Card.Title className="text-center">{title}</Card.Title>}
                 {location && <Card.Text className="text-center">Location: {location}</Card.Text>}
                 {content && <Card.Text>{content}</Card.Text>}
-                {score && <Card.Text className="text-center">Score: {score}</Card.Text>}
+                {score_display && <Card.Text className="text-center">Score: {score_display}</Card.Text>}
                 {/* Show select/unselect options based on user interactions */}
                 <div className={styles.PostBar}>
                     {is_owner ? (
