@@ -18,10 +18,11 @@ function PostEditForm() {
     const [postData, setPostData] = useState({
         title: "",
         location: "",
+        score: "",
         content: "",
         image: "",
     });
-    const { title, location, content, image } = postData;
+    const { title, location, content, score, image } = postData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -31,9 +32,9 @@ function PostEditForm() {
         const handleMount = async () => {
             try {
                 const { data } = await axiosReq.get(`/posts/${id}/`);
-                const { title, location, content, image, is_owner } = data;
+                const { title, location, score, content, image, is_owner } = data;
                 // If the user is not the owner, redirect to home page
-                is_owner ? setPostData({ title, location, content, image }) : history.push("/");
+                is_owner ? setPostData({ title, location, score, content, image }) : history.push("/");
             } catch (err) {
                 console.log(err);
             }
@@ -67,6 +68,7 @@ function PostEditForm() {
 
         formData.append("title", title);
         formData.append("location", location);
+        formData.append('score', score);
         formData.append("content", content);
 
         if (imageInput?.current?.files[0]) {
@@ -120,7 +122,20 @@ function PostEditForm() {
                     {message}
                 </Alert>
             ))}
-
+            {/* Score input */}
+            <Form.Group>
+                <Form.Label>Score</Form.Label>
+                <Form.Control
+                    as="select"
+                    name="score"
+                    value={score}
+                    onChange={handleChange}
+                >
+                    <option value="OK">Okay</option>
+                    <option value="GD">Good</option>
+                    <option value="GT">Great</option>
+                </Form.Control>
+            </Form.Group>
             {/* Content textarea */}
             <Form.Group>
                 <Form.Label>Content</Form.Label>
