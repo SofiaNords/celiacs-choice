@@ -142,7 +142,7 @@ function PostCreateForm() {
                 <Alert variant="warning" key={idx}>
                     {message}
                 </Alert>
-            ))}
+            ))}      
             {/* Cancel button */}
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Green} ${btnStyles.Black}`}
