@@ -108,11 +108,11 @@ const Post = (props) => {
                 <Card.Img src={image} alt={title} />
             </Link>
             <Card.Body>
-                {/* Display post title, location, content and score */}
+                {/* Display post title, score, location and content */}
                 {title && <Card.Title className="text-center">{title}</Card.Title>}
+                {score_display && <Card.Text className="text-center">Score: {score_display}</Card.Text>}
                 {location && <Card.Text className="text-center">Location: {location}</Card.Text>}
                 {content && <Card.Text>{content}</Card.Text>}
-                {score_display && <Card.Text className="text-center">Score: {score_display}</Card.Text>}
                 {/* Show select/unselect options based on user interactions */}
                 <div className={styles.PostBar}>
                     {is_owner ? (
