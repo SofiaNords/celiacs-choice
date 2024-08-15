@@ -17,12 +17,12 @@ function PostEditForm() {
 
     const [postData, setPostData] = useState({
         title: "",
-        location: "",
         score: "",
+        location: "",
         content: "",
         image: "",
     });
-    const { title, location, content, score, image } = postData;
+    const { title, score, location, content, image } = postData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -53,7 +53,7 @@ function PostEditForm() {
 
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
-             // Revoke existing object URL and set new image URL
+            // Revoke existing object URL and set new image URL
             URL.revokeObjectURL(image);
             setPostData({
                 ...postData,
@@ -67,8 +67,8 @@ function PostEditForm() {
         const formData = new FormData();
 
         formData.append("title", title);
-        formData.append("location", location);
         formData.append('score', score);
+        formData.append("location", location);
         formData.append("content", content);
 
         const newErrors = {};
@@ -77,14 +77,14 @@ function PostEditForm() {
         if (!title) {
             newErrors.title = ["This field may not be blank."];
         }
+        if (!score) {
+            newErrors.score = ["Choose a Score!"];
+        }
         if (!location) {
             newErrors.location = ["This field may not be blank."];
         }
         if (!content) {
             newErrors.content = ["This field may not be blank."];
-        }
-        if (!score) {
-            newErrors.score = ["Choose a Score!"];
         }
         if (!image) {
             newErrors.image = ["The submitted data was not a file. Check the encoding type on the form."];
@@ -129,7 +129,20 @@ function PostEditForm() {
                     {message}
                 </Alert>
             ))}
-
+            {/* Score input */}
+            <Form.Group>
+                <Form.Label>Score</Form.Label>
+                <Form.Control
+                    as="select"
+                    name="score"
+                    value={score}
+                    onChange={handleChange}
+                >
+                    <option value="OK">Okay</option>
+                    <option value="GD">Good</option>
+                    <option value="GT">Great</option>
+                </Form.Control>
+            </Form.Group>
             {/* Location input */}
             <Form.Group>
                 <Form.Label>Location</Form.Label>
@@ -146,20 +159,6 @@ function PostEditForm() {
                     {message}
                 </Alert>
             ))}
-            {/* Score input */}
-            <Form.Group>
-                <Form.Label>Score</Form.Label>
-                <Form.Control
-                    as="select"
-                    name="score"
-                    value={score}
-                    onChange={handleChange}
-                >
-                    <option value="OK">Okay</option>
-                    <option value="GD">Good</option>
-                    <option value="GT">Great</option>
-                </Form.Control>
-            </Form.Group>
             {/* Content textarea */}
             <Form.Group>
                 <Form.Label>Content</Form.Label>
