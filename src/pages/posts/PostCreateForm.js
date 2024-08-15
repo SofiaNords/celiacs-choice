@@ -22,13 +22,13 @@ function PostCreateForm() {
 
     const [postData, setPostData] = useState({
         title: "",
+        score: "",
         location: "",
         content: "",
-        score: "",
         image: "",
     });
 
-    const { title, location, content, score, image } = postData;
+    const { title, score, location, content, image } = postData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -57,9 +57,9 @@ function PostCreateForm() {
         const formData = new FormData();
 
         formData.append('title', title);
+        formData.append('score', score);
         formData.append('location', location);
         formData.append('content', content);
-        formData.append('score', score);
         formData.append('image', imageInput.current.files[0]);
 
         const newErrors = {};
@@ -68,14 +68,14 @@ function PostCreateForm() {
         if (!title) {
             newErrors.title = ["This field may not be blank."];
         }
+        if (!score) {
+            newErrors.score = ["Choose a Score!"];
+        }
         if (!location) {
             newErrors.location = ["This field may not be blank."];
         }
         if (!content) {
             newErrors.content = ["This field may not be blank."];
-        }
-        if (!score) {
-            newErrors.score = ["Choose a Score!"];
         }
         if (!image) {
             newErrors.image = ["The submitted data was not a file. Check the encoding type on the form."];
@@ -116,6 +116,27 @@ function PostCreateForm() {
                     {message}
                 </Alert>
             ))}
+            {/* Score input */}
+            <Form.Group>
+                <Form.Label>Score</Form.Label>
+                <Form.Control
+                    as="select"
+                    name="score"
+                    value={score}
+                    onChange={handleChange}
+                >
+                    <option value="">Choose a Score!</option>
+                    <option value="OK">Okay</option>
+                    <option value="GD">Good</option>
+                    <option value="GT">Great</option>
+                </Form.Control>
+            </Form.Group>
+            {/* Display score validation errors */}
+            {errors?.score?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             {/* Location input */}
             <Form.Group>
                 <Form.Label>Location</Form.Label>
@@ -145,27 +166,6 @@ function PostCreateForm() {
             </Form.Group>
             {/* Display content validation errors */}
             {errors?.content?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                    {message}
-                </Alert>
-            ))}
-            {/* Score input */}
-            <Form.Group>
-                <Form.Label>Score</Form.Label>
-                <Form.Control
-                    as="select"
-                    name="score"
-                    value={score}
-                    onChange={handleChange}
-                >
-                    <option value="">Choose a Score!</option>
-                    <option value="OK">Okay</option>
-                    <option value="GD">Good</option>
-                    <option value="GT">Great</option>
-                </Form.Control>
-            </Form.Group>
-            {/* Display score validation errors */}
-            {errors?.score?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                     {message}
                 </Alert>
