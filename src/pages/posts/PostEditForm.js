@@ -71,6 +71,30 @@ function PostEditForm() {
         formData.append('score', score);
         formData.append("content", content);
 
+        const newErrors = {};
+
+        // Validate form fields
+        if (!title) {
+            newErrors.title = ["This field may not be blank."];
+        }
+        if (!location) {
+            newErrors.location = ["This field may not be blank."];
+        }
+        if (!content) {
+            newErrors.content = ["This field may not be blank."];
+        }
+        if (!score) {
+            newErrors.score = ["Choose a Score!"];
+        }
+        if (!image) {
+            newErrors.image = ["The submitted data was not a file. Check the encoding type on the form."];
+        }
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            return;
+        }
+
         if (imageInput?.current?.files[0]) {
             formData.append("image", imageInput.current.files[0]);
         }
