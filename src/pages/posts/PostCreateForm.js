@@ -24,7 +24,7 @@ function PostCreateForm() {
         title: "",
         location: "",
         content: "",
-        score: "OK",
+        score: "",
         image: "",
     });
 
@@ -73,6 +73,9 @@ function PostCreateForm() {
         }
         if (!content) {
             newErrors.content = ["This field may not be blank."];
+        }
+        if (!score) {
+            newErrors.score = ["Choose a Score!"];
         }
         if (!image) {
             newErrors.image = ["The submitted data was not a file. Check the encoding type on the form."];
@@ -155,11 +158,18 @@ function PostCreateForm() {
                     value={score}
                     onChange={handleChange}
                 >
+                    <option value="">Choose a Score!</option>
                     <option value="OK">Okay</option>
                     <option value="GD">Good</option>
                     <option value="GT">Great</option>
                 </Form.Control>
             </Form.Group>
+            {/* Display score validation errors */}
+            {errors?.score?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             {/* Cancel button */}
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Green} ${btnStyles.Black}`}
