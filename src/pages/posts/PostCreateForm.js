@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -19,19 +19,34 @@ function PostCreateForm() {
     // Redirect if user is logged out
     useRedirect('loggedOut');
     const [errors, setErrors] = useState({});
+    const [categories, setCategories] = useState([]);
 
     const [postData, setPostData] = useState({
         title: "",
         score: "",
+        category: "",
         location: "",
         content: "",
         image: "",
     });
 
-    const { title, score, location, content, image } = postData;
+    const { title, score, category, location, content, image } = postData;
 
     const imageInput = useRef(null);
     const history = useHistory();
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const { data } = await axiosReq.get('/category/');
+                setCategories(data.results);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchCategories();
+    }, []);
 
     const handleChange = (event) => {
         // Update state based on input changes
@@ -56,8 +71,13 @@ function PostCreateForm() {
         event.preventDefault();
         const formData = new FormData();
 
+        // Find the category name based on the selected ID
+        const selectedCategory = categories.find(cat => cat.id === parseInt(category));
+        const categoryName = selectedCategory ? selectedCategory.name : '';
+
         formData.append('title', title);
         formData.append('score', score);
+        formData.append('category', categoryName);
         formData.append('location', location);
         formData.append('content', content);
         formData.append('image', imageInput.current.files[0]);
@@ -137,6 +157,23 @@ function PostCreateForm() {
                     {message}
                 </Alert>
             ))}
+            {/* Category input */}
+            <Form.Group>
+                <Form.Label>Category</Form.Label>
+                <Form.Control
+                    as="select"
+                    name="category"
+                    value={category}
+                    onChange={handleChange}
+                >
+                    <option value="">Choose a Category!</option>
+                    {categories.map((cat) => (
+                        <option key={cat.id} value={cat.id}>
+                            {cat.name}
+                        </option>
+                    ))}
+                </Form.Control>
+            </Form.Group>
             {/* Location input */}
             <Form.Group>
                 <Form.Label>Location</Form.Label>

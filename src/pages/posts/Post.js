@@ -26,6 +26,7 @@ const Post = (props) => {
         updated_at,
         postPage,
         setPosts,
+        category,
     } = props;
 
     // Get the current user
@@ -108,9 +109,10 @@ const Post = (props) => {
                 <Card.Img src={image} alt={title} />
             </Link>
             <Card.Body>
-                {/* Display post title, score, location and content */}
+                {/* Display post title, score, category, location and content */}
                 {title && <Card.Title className="text-center">{title}</Card.Title>}
                 {score_display && <Card.Text className="text-center">Score: {score_display}</Card.Text>}
+                {category && <Card.Text className="text-center">Category: {category}</Card.Text>}
                 {location && <Card.Text className="text-center">Location: {location}</Card.Text>}
                 {content && <Card.Text>{content}</Card.Text>}
                 {/* Show select/unselect options based on user interactions */}
