@@ -14,15 +14,17 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 function PostEditForm() {
     const [errors, setErrors] = useState({});
+    const [categories, setCategories] = useState([]);
 
     const [postData, setPostData] = useState({
         title: "",
         score: "",
+        category: "",
         location: "",
         content: "",
         image: "",
     });
-    const { title, score, location, content, image } = postData;
+    const { title, score, category, location, content, image } = postData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -32,9 +34,9 @@ function PostEditForm() {
         const handleMount = async () => {
             try {
                 const { data } = await axiosReq.get(`/posts/${id}/`);
-                const { title, location, score, content, image, is_owner } = data;
+                const { title, location, score, category, content, image, is_owner } = data;
                 // If the user is not the owner, redirect to home page
-                is_owner ? setPostData({ title, location, score, content, image }) : history.push("/");
+                is_owner ? setPostData({ title, score, category, location, content, image }) : history.push("/");
             } catch (err) {
                 console.log(err);
             }
@@ -42,6 +44,19 @@ function PostEditForm() {
 
         handleMount();
     }, [history, id]);
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const { data } = await axiosReq.get('/category/');
+                setCategories(data.results);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchCategories();
+    }, []);
 
     const handleChange = (event) => {
         // Update state based on input changes
@@ -68,6 +83,7 @@ function PostEditForm() {
 
         formData.append("title", title);
         formData.append('score', score);
+        formData.append('category', category);
         formData.append("location", location);
         formData.append("content", content);
 
@@ -143,6 +159,28 @@ function PostEditForm() {
                     <option value="GT">Great</option>
                 </Form.Control>
             </Form.Group>
+            {/* Category input */}
+            <Form.Group>
+                <Form.Label>Category</Form.Label>
+                <Form.Control
+                    as="select"
+                    name="category"
+                    value={category}
+                    onChange={handleChange}
+                >
+                    <option value="">Choose a category</option>
+                    {categories.map((category) => (
+                        <option key={category.id} value={category.name}>
+                            {category.name}
+                        </option>
+                    ))}
+                </Form.Control>
+            </Form.Group>
+            {errors?.category?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             {/* Location input */}
             <Form.Group>
                 <Form.Label>Location</Form.Label>
