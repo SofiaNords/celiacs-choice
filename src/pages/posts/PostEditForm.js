@@ -96,6 +96,9 @@ function PostEditForm() {
         if (!score) {
             newErrors.score = ["Choose a Score!"];
         }
+        if (!category) {
+            newErrors.category = ["Choose a Category!"];
+        }
         if (!location) {
             newErrors.location = ["This field may not be blank."];
         }
