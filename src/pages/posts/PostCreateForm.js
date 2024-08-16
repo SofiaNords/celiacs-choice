@@ -1,4 +1,4 @@
- import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -91,6 +91,9 @@ function PostCreateForm() {
         if (!score) {
             newErrors.score = ["Choose a Score!"];
         }
+        if (!category) {
+            newErrors.category = ["Choose a Category!"];
+        }
         if (!location) {
             newErrors.location = ["This field may not be blank."];
         }
@@ -174,6 +177,12 @@ function PostCreateForm() {
                     ))}
                 </Form.Control>
             </Form.Group>
+            {/* Display category validation errors */}
+            {errors?.category?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             {/* Location input */}
             <Form.Group>
                 <Form.Label>Location</Form.Label>
