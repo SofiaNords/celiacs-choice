@@ -304,7 +304,8 @@ A component that displays a navigation bar. It's used on all pages to ensure sea
 #### Create a post
 ![create a posts](docs/images/feature_10.png)
 
-- A logged in user has access to the "Add post" button. When the user clicks on "Add post", they can create their post with title, location, content and upload an image. After clicking "create" the post is visible in the feed at the Home page.
+- A logged in user has access to the "Add post" button. When the user clicks on "Add post", they can create their post with title, location, content and upload an image. The user can also rate their experience, if they think its Okey, Good or Great, by choosing an option in the dropdown menu. Similarly, the user also selects a category to match the post. 
+After clicking "create" the post is visible in the feed at the Home page.
 - A logged in user can edit och delete a story they have created themselves by clicking on the post and then the three dots to the right in the head of the post.
 
 #### Edit profile
