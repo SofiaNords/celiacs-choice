@@ -26,7 +26,7 @@ function About() {
               Register: Sign up to become a part of our vibrant community. Share your gluten-free discoveries and connect with fellow foodies.
             </li>
             <li>
-              Post Your Experiences: After dining at a gluten-free gem, create a post! Include a photo, location details, and a brief description of your experience.
+              Post Your Experiences: After dining at a gluten-free gem, create a post! Include a photo, location details, and a brief description of your experience. Now you can also rate your experience and choose an appropriate category for your post.
             </li>
             <li>
               Explore and Engage: Browse through other users’ posts, discover new places, and leave comments. Sharing your insights helps others make informed choices.
