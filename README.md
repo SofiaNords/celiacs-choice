@@ -108,6 +108,10 @@ This is the Front end part of the project, the Back end part can be found [here.
 
 31. As a logged in user I can update my username and password so that I can change my display name and keep my profile secure
 
+32. As a user , I want to rate my post, So that other users can see how satisfied I was with the experience.
+
+33. As a user , I want to be able to categorise my post, So that other users understand what kind of restaurant or café it is.
+
 ### Project planning
 
 #### Agile Methodologies
